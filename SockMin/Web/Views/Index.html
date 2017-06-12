@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Red River VIP Luxury Transport</title>
+
+    <link rel="stylesheet" media="screen" href="/SockMin/Styles/style">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dave Shea">
+    <meta name="description" content="A demonstration of what can be accomplished visually through CSS-based design.">
+    <meta name="robots" content="all">
+    <meta name="connection" content="{connection}" />
+
+</head>
+
+
+<body>
+
+    <script type="text/javascript">
+
+        var serviceUrl = "ws://localhost:58951";
+        var socket = new WebSocket(serviceUrl);
+
+        socket.onopen = function () {
+            console.log('Connection Established!');
+            socket.send("Hello WebSocket!");
+            //socket.close();
+        };
+
+        socket.onclose = function () {
+            console.log('Connection Closed!');
+        };
+
+        socket.onerror = function (error) {
+            console.log('Error Occured: ' + error);
+        };
+
+        socket.onmessage = function (e) {
+            if (typeof e.data === "string") {
+                console.log('String message received: ' + e.data);
+                var res = e.data.split("~");
+                document.getElementById(res[0]).innerHTML = '<p>' + res[1] + '</p>';
+            }
+            else if (e.data instanceof ArrayBuffer) {
+                console.log('ArrayBuffer received: ' + e.data);
+            }
+            else if (e.data instanceof Blob) {
+                console.log('Blob received: ' + e.data);
+            }
+        };
+
+
+    </script>
+
+
+    <table>
+
+        <tr class="topbar" id="topbar">
+            <td class="tbitem"><a onclick="socket.send('seed')">Seed Db</a></td>
+            <td class="tbitem"><a onclick="socket.send('updateState:LoggedIn')">Log In</a></td>
+            <td class="tbitem"><a onclick="socket.send('updateState:NotLoggedIn')">Log Out</a></td>
+        </tr>
+    </table>
+    <ul id="nav">
+        <li class="sbitem">
+            <a onclick="socket.send('query1')" class="design-name">Air</a>
+        </li>
+        <li class="sbitem">
+            <a onclick="socket.send('query2')" class="design-name">Road</a>
+        </li>
+        <li class="sbitem">
+            <a onclick="socket.send('query3')" class="design-name">Refreshments</a>
+        </li>
+        <li class="sbitem">
+            <a onclick="socket.send('query4')" class="design-name">Security</a>
+        </li>
+        <li class="sbitem">
+            <a onclick="socket.send('query1')" class="design-name">Communication</a>
+        </li>
+    </ul>
+
+
+    <h1 id="title" class="title">Red River VIP Travel</h1>
+
+    <div id="content" class="content">content in here</div>
+
+    <div id="status" class="status">status here</div>
+
+    <div id="messages" class="messages">messages in here</div>
+
+
+</body>
+</html>

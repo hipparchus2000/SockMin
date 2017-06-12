@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A544A76-62C5-48AF-A4F8-F312BC239E62}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Repository</RootNamespace>
+    <AssemblyName>Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Html\Subscription.cs" />
+    <Compile Include="Entities\Html\ContentItem.cs" />
+    <Compile Include="Entities\Html\HtmlStyle.cs" />
+    <Compile Include="Entities\Html\NavCategory.cs" />
+    <Compile Include="Entities\Html\StatusBarItem.cs" />
+    <Compile Include="Entities\UserAndPermissions\Address.cs" />
+    <Compile Include="Entities\ApplicationSpecific\Booking.cs" />
+    <Compile Include="Entities\ConnectionAndState\Connection.cs" />
+    <Compile Include="Entities\UserAndPermissions\ContactPoint.cs" />
+    <Compile Include="Entities\Generic\Cost.cs" />
+    <Compile Include="Entities\Generic\Country.cs" />
+    <Compile Include="Entities\Generic\Currency.cs" />
+    <Compile Include="Entities\BaseClasses\DeletableBase.cs" />
+    <Compile Include="Entities\BaseClasses\IEntity.cs" />
+    <Compile Include="Entities\ApplicationSpecific\ItineraryItem.cs" />
+    <Compile Include="Entities\Generic\LogEntry.cs" />
+    <Compile Include="Entities\Html\Map.cs" />
+    <Compile Include="Entities\BaseClasses\NamedDeletableBase.cs" />
+    <Compile Include="Entities\Html\NavItem.cs" />
+    <Compile Include="Entities\UserAndPermissions\Permission.cs" />
+    <Compile Include="Entities\UserAndPermissions\PermissionCategory.cs" />
+    <Compile Include="Entities\Generic\Price.cs" />
+    <Compile Include="Entities\UserAndPermissions\Role.cs" />
+    <Compile Include="Entities\ConnectionAndState\State.cs" />
+    <Compile Include="Entities\UserAndPermissions\User.cs" />
+    <Compile Include="Entities\ApplicationSpecific\Vehicle.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="MapRepo.cs" />
+    <Compile Include="Repo.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoInstaller.cs" />
+    <Compile Include="SockMinDbContext.cs" />
+    <Compile Include="SockMinInitializer.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
